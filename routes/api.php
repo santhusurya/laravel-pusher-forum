@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,5 +26,19 @@ Route::apiResource('/category', 'CategoryController');
 
 Route::apiResource('/question/{question}/reply', 'ReplyController');
 
-Route::post('/like/{reply}','LikeController@likeit');
+Route::post('/like/{reply}', 'LikeController@likeit');
 Route::delete('/like/{reply}', 'LikeController@unlikeit');
+
+Route::group([
+    'prefix' => 'auth'
+], function ($router) {
+    Route::post('login', 'AuthController@login');
+    Route::post('logout', 'AuthController@logout');
+    Route::post('refresh', 'AuthController@refresh');
+    Route::post('me', 'AuthController@me');
+    Route::post('payload', 'AuthController@payload');
+});
+
+Route::get('/password', function () {
+    return Hash::make('password');
+});
