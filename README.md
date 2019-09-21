@@ -1,6 +1,11 @@
 # Single Page Vue/Vuetify Forum App built with Laravel/APIs & Pusher
 Forum App built with Laravel, VueJS, Pusher, Vuetify, JWT to test drive all these technologies integrated together.
 
+> This Project is still under development.
+> Currently only API Endpoints have been configured in Laravel.
+
+
+
 > This Forum App has below functionalities.
 > 1. User
 > 1. Category

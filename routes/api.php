@@ -40,6 +40,4 @@ Route::group([
     Route::post('payload', 'AuthController@payload');
 });
 
-// Route::get('/password', function () {
-//     return Hash::make('password');
-// });
+
