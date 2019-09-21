@@ -9,6 +9,13 @@ use Symfony\Component\HttpFoundation\Response;
 
 class CategoryController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('jwt', ['except' => ['index', 'show']]);
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -55,8 +62,8 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         $category->update([
-             'name' => $request->name,
-             'slug' => str_slug($request->name)
+            'name' => $request->name,
+            'slug' => str_slug($request->name)
         ]);
         return response('Updated', Response::HTTP_ACCEPTED);
     }
